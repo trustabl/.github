@@ -1,0 +1,53 @@
+name: Bug report
+description: Something does not work as documented.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Security problem? Do not file it here. Use the repository's **Security** tab → **Report a vulnerability**.
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      options:
+        - Analyzer (trustabl CLI or MCP server)
+        - Rules
+        - Forge (agent-reliability-skills)
+        - Probe (agent-network-access-probe)
+        - Plugin or CI integration (GitHub Action, GitLab, Bitbucket, Claude, Cursor, other)
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `trustabl version`, or the package or plugin version.
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Platform
+      placeholder: macOS 15 arm64, Ubuntu 24.04, Windows 11, GitHub Actions ubuntu-latest
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Include the exact error output.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: The smallest input or repository that shows the problem, and the command you ran.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
